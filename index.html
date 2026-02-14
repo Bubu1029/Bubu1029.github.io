@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusuke - 組込みエンジニア × AI/LLMで事業を創る</title>
+    <title>Yusuke - 制御エンジニア × AI/LLMで事業を創る</title>
     <style>
         * {
             margin: 0;
@@ -258,6 +258,20 @@
             border-left: 4px solid #f56565;
         }
 
+        .goal-item:has(strong:contains('🚀')) {
+            background: linear-gradient(135deg, #f0fff4, #e6fffa);
+            border-left: 4px solid #38b2ac;
+            box-shadow: 0 3px 10px rgba(56, 178, 172, 0.2);
+        }
+
+        .timeline-item li:contains('🚀') {
+            background: linear-gradient(135deg, #f0fff4, #e6fffa);
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 3px solid #38b2ac;
+            margin: 5px 0;
+        }
+
         .stats-section {
             text-align: center;
             background: linear-gradient(135deg, #2d3748, #1a202c);
@@ -288,6 +302,102 @@
             background: #5a67d8;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.05);
+        }
+
+        .gallery-info {
+            padding: 15px;
+        }
+
+        .gallery-title {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2d3748;
+        }
+
+        .gallery-description {
+            font-size: 0.9em;
+            color: #4a5568;
+            margin-bottom: 10px;
+        }
+
+        .gallery-link {
+            display: inline-flex;
+            align-items: center;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .gallery-link:hover {
+            color: #5a67d8;
+        }
+
+        .x-embed-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .x-embed-item {
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .x-embed-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .x-profile-widget {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .twitter-tweet {
+            margin: 0 auto !important;
+        }
+
+        .twitter-timeline {
+            border-radius: 10px !important;
         }
 
         footer {
@@ -327,13 +437,13 @@
         <header>
             <div class="wave">👋</div>
             <h1>Yusuke</h1>
-            <p class="subtitle">組込みエンジニア × AI/LLMで事業を創る</p>
+            <p class="subtitle">制御エンジニア × AI/LLMで事業を創る</p>
         </header>
 
         <section>
             <h2>🚀 About Me</h2>
             <div class="about-content">
-                製造業でのAI製品開発リーダー兼組込みソフトウェアエンジニア。8年以上の組込み開発経験をベースに、現在はRAGシステム・ローカルLLM導入によるB2B向けAIソリューション開発を主導。関西拠点を1名→12名に拡大した実績を持ち、ハードウェアからAIまでの幅広い技術領域で事業を推進しています。
+                製造業でのAI製品開発リーダー兼制御エンジニア。8年以上の制御システム開発経験をベースに、現在はRAGシステム・ローカルLLM導入によるB2B向けAIソリューション開発を主導。関西拠点を1名→12名に拡大した実績を持ち、制御システムからAIまでの幅広い技術領域で事業を推進しています。
             </div>
             <div class="current-role">
                 現職: ビジネスイノベーション室リーダー（製造業・従業員40名） | 拠点: 大阪
@@ -368,6 +478,7 @@
                     <div class="badges">
                         <span class="badge">WSL2</span>
                         <span class="badge">NVIDIA GPU</span>
+                        <span class="badge">GPU Computing</span>
                         <span class="badge">組込みシステム</span>
                     </div>
                 </div>
@@ -384,15 +495,16 @@
                         <li>RAGチャットボット・ローカルLLMを活用したB2B向けAIシステム開発を主導</li>
                         <li>大手家電メーカー向けAI事業の企画・推進・コスト分析を担当</li>
                         <li>GPU搭載ワークステーション選定（RTX 5070 Ti, Grace Blackwell系評価）</li>
+                        <li>🚀 次世代NVIDIA GPUアーキテクチャの性能検証プロジェクトを推進中</li>
                     </ul>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-period">2015年-2023年</div>
-                    <div class="timeline-title">組込みソフトウェアエンジニア（8年+）</div>
+                    <div class="timeline-title">制御エンジニア（8年+）</div>
                     <ul>
                         <li>関西拠点の立ち上げ・拡大（1名 → 12名）をリード</li>
-                        <li>イオン注入装置制御システム開発（ハードウェア制御・リアルタイム処理）</li>
-                        <li>工場検査装置の組込みソフトウェア開発</li>
+                        <li>イオン注入装置制御システム開発（制御アルゴリズム・リアルタイム処理）</li>
+                        <li>工場検査装置の制御システム開発</li>
                     </ul>
                 </div>
             </div>
@@ -415,8 +527,8 @@
                 </div>
                 <div class="project-card">
                     <div class="project-title">⚙️ イオン注入装置制御システム</div>
-                    <div class="project-desc">半導体製造装置の制御ソフトウェア開発</div>
-                    <div class="project-tech">技術構成: C/C++ + リアルタイムOS + ハードウェア制御</div>
+                    <div class="project-desc">半導体製造装置の制御システム開発</div>
+                    <div class="project-tech">技術構成: C/C++ + リアルタイムOS + 制御アルゴリズム</div>
                     <div class="project-result">安定稼働する制御システムを開発、製品化に貢献</div>
                 </div>
             </div>
@@ -468,6 +580,10 @@
                     <strong>AI事業戦略</strong><br>
                     コスト最適化手法の研究
                 </div>
+                <div class="goal-item">
+                    <strong>🚀 次世代NVIDIA GPU評価</strong><br>
+                    最新アーキテクチャの性能検証・AI計算性能評価
+                </div>
             </div>
         </section>
 
@@ -477,15 +593,91 @@
         </section>
 
         <section>
+            <h2>🐦 X Posts - Latest Updates</h2>
+            <div class="x-embed-container">
+                <div class="x-embed-item">
+                    <blockquote class="twitter-tweet" data-theme="light" data-width="350">
+                        <p lang="ja" dir="ltr">ここにあなたの最新のXポストURLを貼り付けてください</p>
+                        <a href="https://twitter.com/BuBu_AIIlust">@BuBu_AIIlust</a>
+                    </blockquote>
+                </div>
+                
+                <div class="x-embed-item">
+                    <blockquote class="twitter-tweet" data-theme="light" data-width="350">
+                        <p lang="ja" dir="ltr">ここに2番目のポストURLを貼り付けてください</p>
+                        <a href="https://twitter.com/BuBu_AIIlust">@BuBu_AIIlust</a>
+                    </blockquote>
+                </div>
+
+                <div class="x-embed-item">
+                    <blockquote class="twitter-tweet" data-theme="light" data-width="350">
+                        <p lang="ja" dir="ltr">ここに3番目のポストURLを貼り付けてください</p>
+                        <a href="https://twitter.com/BuBu_AIIlust">@BuBu_AIIlust</a>
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="x-profile-widget">
+                <a class="twitter-timeline" 
+                   data-width="100%" 
+                   data-height="400" 
+                   data-theme="light"
+                   data-chrome="nofooter noborders transparent"
+                   href="https://twitter.com/BuBu_AIIlust">
+                   @BuBu_AIIlust のタイムラインを読み込んでいます...
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2>🖼️ X Gallery - AIイラスト作品</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x200/667eea/ffffff?text=AI+Illustration+1" alt="AIイラスト作品" class="gallery-image">
+                    <div class="gallery-info">
+                        <div class="gallery-title">🎨 AI生成イラスト #1</div>
+                        <div class="gallery-description">最新のAI技術を使用して生成したオリジナルイラスト</div>
+                        <a href="https://x.com/BuBu_AIIlust/media" class="gallery-link">🐦 Xで詳細を見る</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x200/764ba2/ffffff?text=AI+Illustration+2" alt="AIイラスト作品" class="gallery-image">
+                    <div class="gallery-info">
+                        <div class="gallery-title">🎨 AI生成イラスト #2</div>
+                        <div class="gallery-description">AIを活用したクリエイティブアート作品</div>
+                        <a href="https://x.com/BuBu_AIIlust/media" class="gallery-link">🐦 Xで詳細を見る</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x200/48bb78/ffffff?text=AI+Illustration+3" alt="AIイラスト作品" class="gallery-image">
+                    <div class="gallery-info">
+                        <div class="gallery-title">🎨 AI生成イラスト #3</div>
+                        <div class="gallery-description">最新のAIアート技術で作成した独自作品</div>
+                        <a href="https://x.com/BuBu_AIIlust/media" class="gallery-link">🐦 Xで詳細を見る</a>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://via.placeholder.com/400x200/f56565/ffffff?text=More+Coming+Soon" alt="更新予定" class="gallery-image">
+                    <div class="gallery-info">
+                        <div class="gallery-title">🚀 更新予定</div>
+                        <div class="gallery-description">新しいAIアート作品を続々公開予定</div>
+                        <a href="https://x.com/BuBu_AIIlust/media" class="gallery-link">🐦 フォローして最新情報をチェック</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
             <h2>📫 Get in Touch</h2>
             <div class="contact-buttons">
                 <a href="#" class="contact-btn">📧 Email</a>
                 <a href="#" class="contact-btn">💼 LinkedIn</a>
+                <a href="https://x.com/BuBu_AIIlust" class="contact-btn">🐦 X</a>
             </div>
         </section>
 
         <footer>
-            「組込みからAIまで、技術の力で事業を創り上げる」
+            「制御からAIまで、技術の力で事業を創り上げる」
         </footer>
     </div>
 </body>
