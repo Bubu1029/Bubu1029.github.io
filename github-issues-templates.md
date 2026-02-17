@@ -96,7 +96,6 @@ GitHub CLI (gh) のインストールは完了しているが、認証が未完�
 ### 完了条件
 - [ ] `project-rag-chatbot.html` - RAG就業規則チャットボット詳細ページ
 - [ ] `project-local-llm.html` - ローカルLLM環境構築詳細ページ
-- [ ] `project-ion-control.html` - イオン注入装置制御システム詳細ページ
 - [ ] 各ページに技術構成図やスクリーンショット追加
 - [ ] メインページからのリンク設定
 
